@@ -3,9 +3,16 @@
  {		
 	public function select_all()
 	{
-		return $this->query("SELECT *
+		$query = "SELECT *
 							 FROM `users`, `userroles`
-							 WHERE `users`.`userrole` = `userroles`.`userrole_id`");
+							 WHERE `users`.`userrole` = `userroles`.`userrole_id`";
+		return $this->query($query);
+	}
+
+	public function select_all_optredens()
+	{
+		$query = "SELECT * FROM `optreden`";
+		return $this->query($query);
 	}
  }
 ?>

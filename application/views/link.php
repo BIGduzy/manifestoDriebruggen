@@ -1,5 +1,5 @@
 <style>
-.has_dropdown
+#link li
 {
 	display: inline;
 	list-style-type: none;
@@ -61,7 +61,7 @@
 				  <li class='has_dropdown'><a href=''>TODO2</a></li>
 				  <li class='has_dropdown'><a href=''>TODO3</a></li>
 				  <li class='has_dropdown'><a href=''>TODO4</a></li>
-				  <li class='has_dropdown'><a href=''>TODO5</a></li>";
+				  <li ><a href='".BASE_URL."guests/login'>LOGIN</a></li>";
 		}
 		?>
 	</ul>
