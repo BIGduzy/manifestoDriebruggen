@@ -15,6 +15,9 @@
 			<div id='nav-container'>
 				<?php include("link.php"); ?>
 			</div>
-				<div id='content'>
+			<div id='reclame'>
+				<?php echo "<img src='".BASE_URL."public/img/reserveerhiervoorwarhorse.jpg'>"; ?>
+			</div>
+			<div id='content'>
 
 

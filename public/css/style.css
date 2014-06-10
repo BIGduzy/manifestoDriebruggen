@@ -12,52 +12,100 @@ body
 
 #container
 {
-	border:1px solid RGBA(214,214,214,1);
-	width:800px;
+	background-color: #A19891;
+	width:auto;
 	margin:auto;
-	margin-top:20px;
-	padding:2em;
 }
 
 #content
 {
-	border:1px solid RGBA(214,214,214,1);
-	width:80%;
-	min-height:300px;
-	position:relative;
-	margin-left:auto;
-	padding:1em;
-	margin-top:2em;
-	margin-bottom:2em;
+	position: relative;
+	min-height: 800px;
+	margin-left: 360px;
+	margin-right: 770px; 
+
+}
+
+#reclame
+{
+	width: 370px;
+	height: 185px;
+	margin-right: 360px;
+	position: relative;
+	float: right;
+}
+
+#reclame img
+{
+	width: 370px;
+	height: 185px;
 }
 
 #nav-container
 {
-	border:1px solid RGBA(214,214,214,1);
-	float:left;
-	width:10%;
-	background-color:RGBA(214,214,214,0.5);
-	min-height:300px;
-	margin-top:2em;
-	margin-bottom:2em;
-	padding:1em;
+	background-color: #716661;
+	padding: 1em;
+	max-height: 45px;
 }
 
 #banner, #footer
 {
-	text-align:center;
-	background-color:RGBA(214,214,214,1);
-	padding:1em;
-	color:RGBA(25,25,25,0.5);
+	background-color:RGBA(0,0,0,1);
+	padding-left: 10px;
+	color:RGBA(255,255,255,1);
 }
 
+#banner
+{
+	text-align: right;
+	height: 140px;
+	overflow: hidden;
+}
+
+#banner_box
+{
+	background-image: url('../img/header_carre.png');
+	background-repeat: no-repeat;
+	background-position: 280px top;
+	background-size: auto 100%;
+	height: 140px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 100em;
+}
+
+#optredens td
+{
+	max-width: 375px;
+	max-height: 190px;
+	padding-top: 20px;
+}
+
+#optredens .left
+{
+	padding-right: 10px;
+}
+
+#optredens .right
+{
+	padding-left: 10px;
+}
+
+#optredens img
+{
+	max-width: 100%;
+	height: auto;
+}
 #link ul
 {
 	list-style-type:none;
 }
 
-#link a:link { text-decoration:none; color:RGBA(2,0,81,0.8); }
-#link a:visited { text-decoration:none; color:RGBA(2,0,81,0.6); }
-#link a:hover { text-decoration:none; color:RGBA(200,0,81,1); }
-#link a:active { text-decoration:none; color:RGBA(20,20,20,0.8); }
+#link a:link { text-decoration:none; color: #fff; }
+#link a:visited { text-decoration:none; color: #fff; }
+#link a:hover { text-decoration:none; color: #fff; }
+#link a:active { text-decoration:none; color: #fff; }
 

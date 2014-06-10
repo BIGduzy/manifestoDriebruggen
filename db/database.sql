@@ -2,6 +2,9 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `ManifestoDriebruggen` ;
+CREATE SCHEMA IF NOT EXISTS `ManifestoDriebruggen` DEFAULT CHARACTER SET latin1 ;
+USE `ManifestoDriebruggen` ;
 
 -- -----------------------------------------------------
 -- Table `ManifestoDriebruggen`.`artiest`
@@ -22,17 +25,37 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `ManifestoDriebruggen`.`klant`
+-- Table `ManifestoDriebruggen`.`userroles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ManifestoDriebruggen`.`klant` ;
+DROP TABLE IF EXISTS `ManifestoDriebruggen`.`userroles` ;
 
-CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`klant` (
-  `klant_id` INT(11) NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`userroles` (
+  `userrole_id` INT NOT NULL ,
+  `userrole` VARCHAR(45) NULL ,
+  PRIMARY KEY (`userrole_id`) ,
+  UNIQUE INDEX `userrole_id_UNIQUE` (`userrole_id` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ManifestoDriebruggen`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ManifestoDriebruggen`.`user` ;
+
+CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`user` (
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT ,
   `voornaam` VARCHAR(80) NOT NULL ,
   `achternaam` VARCHAR(80) NOT NULL ,
   `email` VARCHAR(80) NOT NULL ,
   `wachtwoord` TEXT NOT NULL ,
-  PRIMARY KEY (`klant_id`, `email`) )
+  `userrole` INT NULL ,
+  PRIMARY KEY (`user_id`, `email`) ,
+  INDEX `fk_klant_userrole_idx` (`userrole` ASC) ,
+  CONSTRAINT `fk_klant_userrole`
+    FOREIGN KEY (`userrole` )
+    REFERENCES `ManifestoDriebruggen`.`userroles` (`userrole_id` )
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -89,15 +112,15 @@ DROP TABLE IF EXISTS `ManifestoDriebruggen`.`bestelling` ;
 
 CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`bestelling` (
   `bestelling_id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `klant` INT(11) NOT NULL ,
+  `user` INT(11) NOT NULL ,
   `optreden` INT(11) NOT NULL ,
   `aantal` INT(11) NOT NULL ,
   PRIMARY KEY (`bestelling_id`) ,
-  INDEX `klant` (`klant` ASC) ,
+  INDEX `klant` (`user` ASC) ,
   INDEX `optreden` (`optreden` ASC) ,
   CONSTRAINT `bestelling_ibfk_1`
-    FOREIGN KEY (`klant` )
-    REFERENCES `ManifestoDriebruggen`.`klant` (`klant_id` )
+    FOREIGN KEY (`user` )
+    REFERENCES `ManifestoDriebruggen`.`user` (`user_id` )
     ON DELETE CASCADE,
   CONSTRAINT `bestelling_ibfk_2`
     FOREIGN KEY (`optreden` )
@@ -157,7 +180,7 @@ CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`mailing_list` (
   INDEX `genre` (`genre` ASC) ,
   CONSTRAINT `mailing_list_ibfk_1`
     FOREIGN KEY (`klant` )
-    REFERENCES `ManifestoDriebruggen`.`klant` (`klant_id` )
+    REFERENCES `ManifestoDriebruggen`.`user` (`user_id` )
     ON DELETE CASCADE,
   CONSTRAINT `mailing_list_ibfk_2`
     FOREIGN KEY (`genre` )
@@ -194,6 +217,7 @@ CREATE  TABLE IF NOT EXISTS `ManifestoDriebruggen`.`artiesten` (
   UNIQUE INDEX `artiesten_id_UNIQUE` (`artiesten_id` ASC) )
 ENGINE = InnoDB;
 
+USE `ManifestoDriebruggen` ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -31,6 +31,7 @@
 		{
 			require_once(ROOT.DS.'application'.DS.'views'.DS.'header.php');
 		}
+		
 		//content
 		if ( file_exists(ROOT.DS.'application'.DS.'views'.DS.$this->_controller.DS.$this->_action.'.php'))
 		{
@@ -40,6 +41,7 @@
 		{
 			echo 'De view behorende bij de method: '.$this->_action.' bestaat nog niet';
 		}
+
 		//footer
 		if (file_exists(ROOT.DS.'application'.DS.'views'.DS.$this->_controller.DS.'footer.php'))
 		{
