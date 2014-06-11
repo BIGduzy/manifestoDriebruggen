@@ -1,18 +1,4 @@
-<style type="text/css">
-
-#login_box
-{
-	min-height: 10em;
-	background-color: #fff;
-	background-image: url('../img/kroon.png');
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	padding: 10px;
-}
-
-</style>
-
-<div id='login_box'>
+<div id='box'>
 	<?php echo $header; ?>
 	<table>
 		<form action='<?php echo BASE_URL; ?>guests/login' method='post'>

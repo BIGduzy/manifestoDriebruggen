@@ -100,20 +100,111 @@ body
 	height: auto;
 }
 
+#box
+{
+	min-height: 10em;
+	background-color: #fff;
+	background-image: url('../img/kroon.png');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	padding: 15px;
+	padding-bottom: 2.6em;
+}
+
+.picture img
+{
+	padding-top: .4em;
+	max-width: 100%;
+}
+
+.title h1
+{
+	font-size: 1.6em;
+	text-transform: uppercase;
+	color: #ed1c24;
+	line-height: 1;
+	margin-bottom: .625em;
+}
+
+.title h2
+{
+	font-size: 1.3em;
+	color: #666;
+	font-weight: bold;
+	font-style: normal;
+	margin-bottom: .4em;
+}
+
+.title .button
+{
+	top: -30px;
+}
+
+.omschrijving
+{
+	padding-top: 1.6em;
+}
+
+.prijs_table table
+{
+	text-align: left;
+	min-width: 100%;
+	margin: 0.5em 0;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5em;
+	border-collapse: collapse;
+
+}
+.prijs_table td
+{
+	background-color: #ddd;
+	vertical-align: inherit;
+	padding: 5px;
+}
 	
+.submitbutton
+{
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	width: 90px;
+	height: 18px;
+	white-space: nowrap;
+	padding: 4px 0 2px 0;
+	font-size: 11px;
+	text-align: center;
+	vertical-align: middle;
+	opacity: 0.90;
+	float: right;
+	padding-right: 25px;
+	background-position: top right;
+	line-height: 1.5em;
+	display: block;
+	color: #594D4D;
+	font-weight: bold;
+}
+
+.submitbutton span
+{
+	cursor: pointer;
+}
+
 #transparent_box
 {
 	bottom: 52px;
 	background-color: rgba(0,0,0,0.6);
 	color: white;
 	width: 740px;
+	height: 30px;
 	padding: 10px 14px;
+	margin-bottom: -50px;
 	font-size: .875em;
 	position: relative;
 }
-#transparent_box button
+
+.button
 {
-	left: 59em;
+	right: 0em;
 	text-transform: uppercase;
 	border-style: solid;
 	border-width: 1px;
@@ -131,6 +222,7 @@ body
 	border-color: #a0000f;
 	color: white;
 	box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	float: right;
 }
 
 #link ul

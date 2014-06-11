@@ -1,13 +1,8 @@
-<style type="text/css">
-
-
-</style>
-
 <div id='BIG_picture'>
 	<?php echo $picture; ?>
 	<div id='transparent_box'>
-		<?php echo $description; ?>
-		<button>Bestel</button>
+		<?php echo $title; ?>
+		<button type='button' class='button'>Bestel</button>
 	</div>
 
 </div>
@@ -16,3 +11,13 @@
 		<?php echo $show_optredens; ?>
 	</table>
 </div>
+
+<script type="text/javascript">
+
+	$('document').ready(function(){
+		$('.button').click(function(){
+			location.href = '<?php echo $link; ?>';
+		});
+	});	
+
+</script>
