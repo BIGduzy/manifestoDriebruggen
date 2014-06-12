@@ -1,7 +1,7 @@
 <?php
  class Guest extends Model
  {		
-	public function select_all()
+	public function select_all_users()
 	{
 		$query = "SELECT *
 							 FROM `users`, `userroles`
