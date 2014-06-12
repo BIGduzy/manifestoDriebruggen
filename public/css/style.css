@@ -1,0 +1,237 @@
+*
+{
+	padding:0px;
+	margin:0px;
+}
+
+body
+{
+	font-family:Arial;
+	font-size:12px;
+}
+
+#container
+{
+	background-color: #A19891;
+	width:auto;
+	margin:auto;
+}
+
+#content
+{
+	position: relative;
+	min-height: 800px;
+	margin-left: 360px;
+	margin-right: 770px; 
+
+}
+
+#reclame
+{
+	width: 370px;
+	height: 185px;
+	margin-right: 360px;
+	position: relative;
+	float: right;
+}
+
+#reclame img
+{
+	width: 370px;
+	height: 185px;
+}
+
+#nav-container
+{
+	background-color: #716661;
+	padding: 1em;
+	max-height: 45px;
+}
+
+#banner, #footer
+{
+	background-color:RGBA(0,0,0,1);
+	padding-left: 10px;
+	color:RGBA(255,255,255,1);
+}
+
+#banner
+{
+	text-align: right;
+	height: 140px;
+	overflow: hidden;
+}
+
+#banner_box
+{
+	background-image: url('../img/header_carre.png');
+	background-repeat: no-repeat;
+	background-position: 280px top;
+	background-size: auto 100%;
+	height: 140px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 100em;
+}
+
+#optredens td
+{
+	max-width: 375px;
+	max-height: 190px;
+	padding-top: 20px;
+}
+
+#optredens .left
+{
+	padding-right: 10px;
+}
+
+#optredens .right
+{
+	padding-left: 10px;
+}
+
+#optredens img
+{
+	max-width: 100%;
+	height: auto;
+}
+
+#box
+{
+	min-height: 10em;
+	background-color: #fff;
+	background-image: url('../img/kroon.png');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	padding: 15px;
+	padding-bottom: 2.6em;
+}
+
+.picture img
+{
+	padding-top: .4em;
+	max-width: 100%;
+}
+
+.title h1
+{
+	font-size: 1.6em;
+	text-transform: uppercase;
+	color: #ed1c24;
+	line-height: 1;
+	margin-bottom: .625em;
+}
+
+.title h2
+{
+	font-size: 1.3em;
+	color: #666;
+	font-weight: bold;
+	font-style: normal;
+	margin-bottom: .4em;
+}
+
+.title .button
+{
+	top: -30px;
+}
+
+.omschrijving
+{
+	padding-top: 1.6em;
+}
+
+.prijs_table table
+{
+	text-align: left;
+	min-width: 100%;
+	margin: 0.5em 0;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5em;
+	border-collapse: collapse;
+
+}
+.prijs_table td
+{
+	background-color: #ddd;
+	vertical-align: inherit;
+	padding: 5px;
+}
+	
+.submitbutton
+{
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	width: 90px;
+	height: 18px;
+	white-space: nowrap;
+	padding: 4px 0 2px 0;
+	font-size: 11px;
+	text-align: center;
+	vertical-align: middle;
+	opacity: 0.90;
+	float: right;
+	padding-right: 25px;
+	background-position: top right;
+	line-height: 1.5em;
+	display: block;
+	color: #594D4D;
+	font-weight: bold;
+}
+
+.submitbutton span
+{
+	cursor: pointer;
+}
+
+#transparent_box
+{
+	bottom: 52px;
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	width: 740px;
+	height: 30px;
+	padding: 10px 14px;
+	margin-bottom: -50px;
+	font-size: .875em;
+	position: relative;
+}
+
+.button
+{
+	right: 0em;
+	text-transform: uppercase;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	font-weight: bold;
+	line-height: 1;
+	position: relative;
+	text-align: center;
+	padding-right: 1.5em;
+	padding-left: 1.5em;
+	padding-top: .8125em;
+	padding-bottom: .75em;
+	font-size: 1em;
+	background-color: #ed1c24;
+	border-color: #a0000f;
+	color: white;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	float: right;
+}
+
+#link ul
+{
+	list-style-type:none;
+}
+
+#link a:link { text-decoration:none; color: #fff; }
+#link a:visited { text-decoration:none; color: #fff; }
+#link a:hover { text-decoration:none; color: #fff; }
+#link a:active { text-decoration:none; color: #fff; }
+
