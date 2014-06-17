@@ -2,7 +2,13 @@
 	<div class='title'>
 		<?php 
 			echo $header;
-			echo "<button type='button' class='button'> bestel kaarten </button>";
+			
+			if ($uitverkocht == "true"){
+				echo "<img class= 'img1' src='".BASE_URL."public/img/uitverkocht.jpg'>";
+			}
+			else{
+				echo "<button type='button' class='button'> bestel kaarten </button>";
+			}
 			echo $datum;
 		?>
 	</div>

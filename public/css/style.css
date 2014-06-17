@@ -77,21 +77,118 @@ body
 	max-width: 100em;
 }
 
-#optredens td
+.agenda_picture
 {
-	max-width: 375px;
-	max-height: 190px;
-	padding-top: 20px;
+	position: relative;
 }
 
-#optredens .left
+.agenda_button
+{
+	position: absolute;
+	padding-right: 20px;
+	padding-top: 20px;
+	max-width: 100px;
+	right: 0px;
+	top: 0px;
+}
+
+.agenda_button button
+{
+	width: 100px;
+	margin-bottom: 15px;
+}
+
+.agenda_text
+{
+	position: absolute;
+	padding-left: 190px;
+	padding-top: 20px;
+	top: 0px;
+	max-width: 370px;
+}
+
+.agenda_text h1
+{
+	font-size: 1.6em;
+	text-transform: uppercase;
+	color: #ed1c24;
+	line-height: 1;
+	margin-bottom: .625em;
+}
+
+.agenda_text h2
+{
+	font-size: 1.3em;
+	color: #666;
+	font-weight: bold;
+	font-style: normal;
+	margin-bottom: .4em;
+}
+
+#agenda ul
+{
+	width: 100%;
+	padding: 0;
+}
+
+#agenda li
+{
+	display: block;
+	position: relative;
+	padding: 20px;
+	margin: 14px;
+	max-width: 100%;
+	max-height: 100%;
+	padding-top: 15px;
+	background-color: rgba(161,152,145,0.2);
+}
+
+#agenda img {
+	width: 24%;
+}
+
+#optredens
+{
+	width: 100%;
+	height: 1275px;
+}
+
+#optredens ul
+{
+	width: 100%;
+	padding: 0;
+}
+
+#optredens li
+{
+	display: block;
+	position: relative;
+	float:left;
+	max-width: 48.7%;
+	max-height: 100%;
+	padding-top: 20px;
+	
+}
+
+.left
 {
 	padding-right: 10px;
 }
 
-#optredens .right
+.right
 {
 	padding-left: 10px;
+}
+
+.transparent_box_small
+{
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	width: 97.5%;
+	height: 30px;
+	font-size: .875em;
+	position: absolute;
+	bottom: 2px;
 }
 
 #optredens img
@@ -115,6 +212,12 @@ body
 {
 	padding-top: .4em;
 	max-width: 100%;
+}
+
+.title img
+{
+	float: right;
+	max-height: 10em;
 }
 
 .title h1
@@ -189,7 +292,7 @@ body
 	cursor: pointer;
 }
 
-#transparent_box
+.transparent_box
 {
 	bottom: 52px;
 	background-color: rgba(0,0,0,0.6);

@@ -57,7 +57,7 @@
 		}
 		else
 		{
-			echo "<li class='has_dropdown'><a href=''>AGENDA</a></li>
+			echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
 				  <li class='has_dropdown'><a href=''>TODO2</a></li>
 				  <li class='has_dropdown'><a href=''>TODO3</a></li>
 				  <li class='has_dropdown'><a href=''>TODO4</a></li>

@@ -24,14 +24,19 @@
 
 	public function insert_into_bestelling($post)
 	{
+		date_default_timezone_set("Europe/Amsterdam");
+		$date = Date("Y-m-d H:i:s");
+
 		$query = "INSERT INTO `bestelling` ( `bestelling_id`,
 									     `user`,
 									     `optreden`,
-									     `aantal`)
+									     `aantal`,
+									     `datum`)
 							VALUES      ( NULL,
 										  '".$_SESSION['user_id']."',
 										  '".$post['optreden_id']."',
-										  '".$post['amount']."')";
+										  '".$post['amount']."',
+										  '".$date."')";
 		// echo $query; exit();
 		$this->query($query);
 

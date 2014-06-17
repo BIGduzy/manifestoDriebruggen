@@ -1,15 +1,15 @@
 <div id='BIG_picture'>
 	<?php echo $picture; ?>
-	<div id='transparent_box'>
+	<div class='transparent_box'>
 		<?php echo $title; ?>
 		<button type='button' class='button'>Bestel</button>
 	</div>
 
 </div>
 <div id='optredens'>
-	<table>
+	<ul>
 		<?php echo $show_optredens; ?>
-	</table>
+	</ul>
 </div>
 
 <script type="text/javascript">
