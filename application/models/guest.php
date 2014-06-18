@@ -15,10 +15,23 @@
 		return $this->query($query);
 	}
 
+	public function select_all_persberichten()
+	{
+		$query = "SELECT * FROM `persbericht`";
+		return $this->query($query);
+	}
+
 	public function select_optreden_by_id($id)
 	{
 		$query = "SELECT * FROM `optreden`
 						   WHERE `optreden_id` = '".$id."'";
+		return $this->query($query);
+	}
+
+	public function select_artiest_by_id($id)
+	{
+		$query = "SELECT * FROM `artiest`
+						   WHERE `artiest_id` = '".$id."'";
 		return $this->query($query);
 	}
 

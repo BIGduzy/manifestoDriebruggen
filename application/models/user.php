@@ -22,6 +22,13 @@
 		return $this->query($query);
 	}
 
+	public function select_aantal_bestellingen_by_user_id($id)
+	{
+		$query = "SELECT aantal FROM `bestelling`
+						   WHERE `user` = '".$id."'";
+		return $this->query($query);
+	}
+
 	public function insert_into_bestelling($post)
 	{
 		date_default_timezone_set("Europe/Amsterdam");

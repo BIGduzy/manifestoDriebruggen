@@ -58,8 +58,8 @@
 		else
 		{
 			echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
-				  <li class='has_dropdown'><a href=''>TODO2</a></li>
-				  <li class='has_dropdown'><a href=''>TODO3</a></li>
+				  <li class='has_dropdown'><a href='".BASE_URL."guests/history''>HISTORY</a></li>
+				  <li class='has_dropdown'><a href='".BASE_URL."guests/persberichten''>PERSBERICHTEN</a></li>
 				  <li class='has_dropdown'><a href=''>TODO4</a></li>
 				  <li ><a href='".BASE_URL."guests/login'>LOGIN</a></li>";
 		}

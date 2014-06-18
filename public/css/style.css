@@ -77,6 +77,13 @@ body
 	max-width: 100em;
 }
 
+.persbericht_text h1
+{
+	text-align: center;
+	padding-bottom: 20px;
+	color: #ed1c24;
+}
+
 .agenda_picture
 {
 	position: relative;
@@ -92,7 +99,7 @@ body
 	top: 0px;
 }
 
-.agenda_button button
+.agenda_button .button
 {
 	width: 100px;
 	margin-bottom: 15px;

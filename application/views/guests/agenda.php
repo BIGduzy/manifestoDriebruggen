@@ -9,13 +9,3 @@
 		</ul>
 	</div>
 </div>
-
-<script type="text/javascript">
-
-	$('document').ready(function(){
-		$('.button').click(function(){
-			location.href = '<?php echo $link; ?>';
-		});
-	});	
-
-</script>

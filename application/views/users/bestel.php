@@ -33,5 +33,6 @@
 			</div>
 		</form>
 	</div>
+	<p>LET OP elke reservering kost 1 euro extra (per kaartje).</p>
 	
 </div>

@@ -20,13 +20,19 @@
 		
 		echo $omschrijving;
 		
-		/*echo "artiest: ".$artiest."<br>";
-		echo "zaal: ".$zaal."<br>";
+		echo "<br><br> Artiesten: ".$artiest."<br>";
+		/*echo "zaal: ".$zaal."<br>";
 		echo "uitverkocht: ".$uitverkocht."<br>";
 		echo "kaarten_beschikbaar: ".$kaarten_beschikbaar."<br>";
 		echo "afgelast: ".$afgelast."<br>";
 		echo "datum_uitverkocht: ".$datum_uitverkocht."<br>";*/
-		
+		if( isset ($video) ) {
+			echo $video;
+		}
+		echo "<br>";
+		if( isset ($sound) ) {
+			echo $sound;
+		}
 	 ?>
 </div>
 
