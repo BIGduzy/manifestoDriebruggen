@@ -11,6 +11,9 @@
 			}
 			echo $datum;
 		?>
+		<div class='kaarten_beschikbaar'>
+			<?php echo "<h2>Nog ".$kaarten_beschikbaar." kaarten beschikbaar</h2>"; ?>
+		</div>
 	</div>
 	<div class='picture'>
 		<?php echo $foto ?> 
@@ -21,11 +24,6 @@
 		echo $omschrijving;
 		
 		echo "<br><br> Artiesten: ".$artiest."<br>";
-		/*echo "zaal: ".$zaal."<br>";
-		echo "uitverkocht: ".$uitverkocht."<br>";
-		echo "kaarten_beschikbaar: ".$kaarten_beschikbaar."<br>";
-		echo "afgelast: ".$afgelast."<br>";
-		echo "datum_uitverkocht: ".$datum_uitverkocht."<br>";*/
 		if( isset ($video) ) {
 			echo $video;
 		}
