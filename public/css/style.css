@@ -20,10 +20,9 @@ body
 #content
 {
 	position: relative;
+	left: 17.4%;
 	min-height: 800px;
-	margin-left: 360px;
-	margin-right: 770px; 
-
+	max-width: 64.20em;
 }
 
 #reclame
