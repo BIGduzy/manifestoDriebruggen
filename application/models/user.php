@@ -9,6 +9,13 @@
 		return $this->query($query);
 	}
 
+	public function select_user_by_id($id)
+	{
+		$query = "SELECT * FROM `users`
+						   WHERE `user_id` = '".$id."'";
+		return $this->query($query);
+	}
+
 	public function select_all_optredens()
 	{
 		$query = "SELECT * FROM `optreden`";
@@ -24,7 +31,7 @@
 
 	public function select_aantal_bestellingen_by_user_id($id)
 	{
-		$query = "SELECT aantal FROM `bestelling`
+		$query = "SELECT * FROM `bestelling`
 						   WHERE `user` = '".$id."'";
 		return $this->query($query);
 	}

@@ -60,7 +60,7 @@
 			echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
 				  <li class='has_dropdown'><a href='".BASE_URL."guests/history''>HISTORY</a></li>
 				  <li class='has_dropdown'><a href='".BASE_URL."guests/persberichten''>PERSBERICHTEN</a></li>
-				  <li class='has_dropdown'><a href=''>TODO4</a></li>
+				  <li class='has_dropdown'><a href='".BASE_URL."guests/contact''>CONTACT</a></li>
 				  <li ><a href='".BASE_URL."guests/login'>LOGIN</a></li>";
 		}
 		?>
