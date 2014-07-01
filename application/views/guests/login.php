@@ -1,7 +1,7 @@
 <div id='box'>
 	<?php echo $header; ?>
 	<table>
-		<form action='<?php echo BASE_URL; ?>guests/login' method='post'>
+		<form action='<?php echo BASE_URL."guests/login/".$model."/".$link."/".$value; ?>' method='post'>
 			<tr>
 				<td>e-mail: </td>
 				<td><input type='text' name='email'></td>
