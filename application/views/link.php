@@ -13,8 +13,17 @@
 
 <div id='link'>
 	<ul>
-		<?php if ( isset($_SESSION['userrole'] ))
+		<?php
+
+		echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
+			  <li class='has_dropdown'><a href='".BASE_URL."guests/history''>HISTORY</a></li>
+			  <li class='has_dropdown'><a href='".BASE_URL."guests/persberichten''>PERSBERICHTEN</a></li>
+			  <li class='has_dropdown'><a href='".BASE_URL."guests/contact''>CONTACT</a></li>
+			  <li class='has_dropdown'><a href='".BASE_URL."users/mailinglist''>MAILINGLIJST</a></li>";
+
+		if ( isset($_SESSION['userrole'] ))
 		{
+
 			switch ($_SESSION['userrole'])
 			{
 				case "administrator":
@@ -42,26 +51,19 @@
 						  <li class='has_dropdown'><a href=''>Admin5</a></li>
 						  <li class='has_dropdown'><a href=''>Admin6</a></li>";
 				break;
-				case "customer":
+				case "user":
 					echo "<li class='has_dropdown'>
-							<a href='".BASE_URL."users/homepage'>producten</a>
-						  </li>
-						  <li class='has_dropdown'>
-							<a href='".BASE_URL."customers/buying_history'>koop historie</a>
+							<a href='".BASE_URL."users/buying_history'>BESTELLINGEN</a>
 						  </li>";
 				break;
 			}
 			echo "<li class='has_dropdown'>
-					<a href='".BASE_URL."users/logout'>logout</a>
+					<a href='".BASE_URL."users/logout'>LOGOUT</a>
 				  </li>";
 		}
 		else
 		{
-			echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
-				  <li class='has_dropdown'><a href='".BASE_URL."guests/history''>HISTORY</a></li>
-				  <li class='has_dropdown'><a href='".BASE_URL."guests/persberichten''>PERSBERICHTEN</a></li>
-				  <li class='has_dropdown'><a href='".BASE_URL."guests/contact''>CONTACT</a></li>
-				  <li ><a href='".BASE_URL."guests/login'>LOGIN</a></li>";
+			echo "<li class='has_dropdown'><a href='".BASE_URL."guests/login'>LOGIN</a></li>";
 		}
 		?>
 	</ul>
