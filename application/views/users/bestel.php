@@ -28,6 +28,7 @@
 				</tr>
 			</table>
 			<div class='submitbutton'>
+				<input type="hidden"  name="optreden_id" value="<?php echo $id; ?>">
 				<span alt="Ga verder  &#187;" title="Ga verder  &#187;" onclick="document.forms.buy_form.submit();">Ga verder  &#187;</span>
 			</div>
 		</form>

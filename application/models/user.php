@@ -36,6 +36,13 @@
 		return $this->query($query);
 	}
 
+	public function select_bestellingen_by_user_id($id)
+	{
+		$query = "SELECT * FROM `bestelling`
+						   WHERE `user` = '".$id."'";
+		return $this->query($query);
+	}
+
 	public function select_aantal_bestellingen_by_user_id($id)
 	{
 		$query = "SELECT * FROM `bestelling`
@@ -63,12 +70,27 @@
 
 	}
 
-	public function insert_into_mailinglist($user_id){
+	public function insert_into_mailinglist($user_id)
+	{
 		$query = "INSERT INTO `mailing_list` (`mailinglist_id`,
 											`klant`)
 							VALUES 			(NULL,
 											'".$user_id."')";
 		// echo $query; exit();
+		$this->query($query);
+	}
+
+	public function remove_bestelling($id,$aantal,$optreden_id)
+	{
+		$query = "DELETE FROM `bestelling`
+						 WHERE `bestelling_id` = '".$id."' ";
+		// echo $query; exit();
+		$this->query($query);
+
+		$query = "UPDATE `optreden`
+						 set `kaarten_beschikbaar` = '".$aantal."'
+						 WHERE `optreden_id` = '".$optreden_id."' ";
+		// echo $query; exit();	
 		$this->query($query);
 	}
  }

@@ -51,7 +51,7 @@
 						  <li class='has_dropdown'><a href=''>Admin6</a></li>";
 				break;
 				case "user":
-					echo "<li class='has_dropdown'><a href='".BASE_URL."users/buying_history'>BESTELLINGEN</a></li>
+					echo "<li class='has_dropdown'><a href='".BASE_URL."users/bestellingen'>BESTELLINGEN</a></li>
 			 			  <li class='has_dropdown'><a href='".BASE_URL."users/mailinglist''>MAILINGLIJST</a></li>";
 				break;
 			}
