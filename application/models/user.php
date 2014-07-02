@@ -12,7 +12,14 @@
 	public function select_user_by_id($id)
 	{
 		$query = "SELECT * FROM `users`
-						   WHERE `user_id` = '".$id."'";
+						   WHERE `user_id` = '".$id."'";   
+		return $this->query($query);
+	}
+
+	public function select_mailinglist_by_user_id($id)
+	{
+		$query = "SELECT * FROM `mailing_list`
+						   WHERE `klant` = '".$id."'";
 		return $this->query($query);
 	}
 
@@ -54,6 +61,15 @@
 		// echo $query; exit();
 		$this->query($query);
 
+	}
+
+	public function insert_into_mailinglist($user_id){
+		$query = "INSERT INTO `mailing_list` (`mailinglist_id`,
+											`klant`)
+							VALUES 			(NULL,
+											'".$user_id."')";
+		// echo $query; exit();
+		$this->query($query);
 	}
  }
 ?>

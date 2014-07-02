@@ -18,8 +18,7 @@
 		echo "<li class='has_dropdown'><a href='".BASE_URL."guests/agenda''>AGENDA</a></li>
 			  <li class='has_dropdown'><a href='".BASE_URL."guests/history''>HISTORY</a></li>
 			  <li class='has_dropdown'><a href='".BASE_URL."guests/persberichten''>PERSBERICHTEN</a></li>
-			  <li class='has_dropdown'><a href='".BASE_URL."guests/contact''>CONTACT</a></li>
-			  <li class='has_dropdown'><a href='".BASE_URL."users/mailinglist''>MAILINGLIJST</a></li>";
+			  <li class='has_dropdown'><a href='".BASE_URL."guests/contact''>CONTACT</a></li>";
 
 		if ( isset($_SESSION['userrole'] ))
 		{
@@ -52,9 +51,8 @@
 						  <li class='has_dropdown'><a href=''>Admin6</a></li>";
 				break;
 				case "user":
-					echo "<li class='has_dropdown'>
-							<a href='".BASE_URL."users/buying_history'>BESTELLINGEN</a>
-						  </li>";
+					echo "<li class='has_dropdown'><a href='".BASE_URL."users/buying_history'>BESTELLINGEN</a></li>
+			 			  <li class='has_dropdown'><a href='".BASE_URL."users/mailinglist''>MAILINGLIJST</a></li>";
 				break;
 			}
 			echo "<li class='has_dropdown'>
