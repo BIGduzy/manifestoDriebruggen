@@ -50,7 +50,7 @@
 		return $this->query($query);
 	}
 
-	public function insert_into_bestelling($post)
+	public function insert_into_bestelling($post,$aantal)
 	{
 		date_default_timezone_set("Europe/Amsterdam");
 		$date = Date("Y-m-d H:i:s");
@@ -66,6 +66,12 @@
 										  '".$post['amount']."',
 										  '".$date."')";
 		// echo $query; exit();
+		$this->query($query);
+
+		$query = "UPDATE `optreden`
+						 set `kaarten_beschikbaar` = '".$aantal."'
+						 WHERE `optreden_id` = '".$post['optreden_id']."' ";
+		// echo $query; exit();	
 		$this->query($query);
 
 	}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 11 jun 2014 om 17:32
+-- Genereertijd: 03 jul 2014 om 12:30
 -- Serverversie: 5.5.24-log
 -- PHP-versie: 5.3.13
 
@@ -31,8 +31,6 @@ CREATE TABLE IF NOT EXISTS `artiest` (
   `naam` varchar(80) DEFAULT NULL,
   `omschrijving` text NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `geluids_fragment` text,
-  `video_fragment` text,
   `website` text,
   PRIMARY KEY (`artiest_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -41,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `artiest` (
 -- Gegevens worden uitgevoerd voor tabel `artiest`
 --
 
-INSERT INTO `artiest` (`artiest_id`, `naam`, `omschrijving`, `foto`, `geluids_fragment`, `video_fragment`, `website`) VALUES
-(1, 'test_artiest', 'test artiest 1', '', NULL, NULL, NULL),
-(2, 'test_artiest2', 'test artiest 2', '', NULL, NULL, NULL);
+INSERT INTO `artiest` (`artiest_id`, `naam`, `omschrijving`, `foto`, `website`) VALUES
+(1, 'test_artiest', 'test artiest 1 omschrijving', 'portret-liselotte-van-saarloos.jpg', 'www.test_artiest.com'),
+(2, 'test_artiest2', 'test artiest 2', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,10 +68,19 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
   `user` int(11) NOT NULL,
   `optreden` int(11) NOT NULL,
   `aantal` int(11) NOT NULL,
+  `datum` datetime NOT NULL,
   PRIMARY KEY (`bestelling_id`),
   KEY `klant` (`user`),
   KEY `optreden` (`optreden`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `bestelling`
+--
+
+INSERT INTO `bestelling` (`bestelling_id`, `user`, `optreden`, `aantal`, `datum`) VALUES
+(1, 2, 3, 3, '2014-07-03 11:40:54'),
+(2, 2, 3, 1, '2014-07-03 11:41:30');
 
 -- --------------------------------------------------------
 
@@ -110,11 +117,18 @@ CREATE TABLE IF NOT EXISTS `mailing_list` (
   `mailinglist_id` int(11) NOT NULL AUTO_INCREMENT,
   `klant` int(11) NOT NULL,
   `genre` int(11) DEFAULT NULL,
-  `artiesten` text,
   PRIMARY KEY (`mailinglist_id`),
   KEY `klant` (`klant`),
   KEY `genre` (`genre`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `mailing_list`
+--
+
+INSERT INTO `mailing_list` (`mailinglist_id`, `klant`, `genre`) VALUES
+(1, 1, NULL),
+(2, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,15 +138,19 @@ CREATE TABLE IF NOT EXISTS `mailing_list` (
 
 CREATE TABLE IF NOT EXISTS `optreden` (
   `optreden_id` int(11) NOT NULL AUTO_INCREMENT,
-  `datum` date NOT NULL,
+  `datum` datetime NOT NULL,
   `artiest` int(11) NOT NULL,
   `zaal` int(11) NOT NULL,
-  `uitverkocht` tinyint(1) DEFAULT NULL,
+  `kaart_prijs` decimal(18,2) NOT NULL,
   `kaarten_beschikbaar` int(11) NOT NULL,
-  `kaarten_verkocht` int(11) DEFAULT NULL,
-  `afgelast` tinyint(1) NOT NULL,
+  `totaal_kaarten_beschikbaar` int(11) NOT NULL,
+  `afgelast` tinyint(1) NOT NULL COMMENT '0 = true, 1= false',
   `datum_uitverkocht` date NOT NULL,
   `foto` varchar(255) NOT NULL,
+  `naam` varchar(255) NOT NULL,
+  `omschrijving` text NOT NULL,
+  `geluidsfragment` text,
+  `videofragment` text,
   PRIMARY KEY (`optreden_id`),
   KEY `artiest` (`artiest`),
   KEY `zaal` (`zaal`)
@@ -142,19 +160,19 @@ CREATE TABLE IF NOT EXISTS `optreden` (
 -- Gegevens worden uitgevoerd voor tabel `optreden`
 --
 
-INSERT INTO `optreden` (`optreden_id`, `datum`, `artiest`, `zaal`, `uitverkocht`, `kaarten_beschikbaar`, `kaarten_verkocht`, `afgelast`, `datum_uitverkocht`, `foto`) VALUES
-(1, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(2, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg'),
-(3, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg'),
-(4, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg'),
-(5, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(6, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(7, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(8, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg'),
-(9, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg'),
-(10, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(11, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'Lewis_Black.jpg'),
-(12, '2014-06-25', 1, 1, 0, 10, 0, 0, '2014-06-30', 'War_Horse.jpg');
+INSERT INTO `optreden` (`optreden_id`, `datum`, `artiest`, `zaal`, `kaart_prijs`, `kaarten_beschikbaar`, `totaal_kaarten_beschikbaar`, `afgelast`, `datum_uitverkocht`, `foto`, `naam`, `omschrijving`, `geluidsfragment`, `videofragment`) VALUES
+(1, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Parelvissers.jpg', 'Nederlandse reisopera - parelvissers', '"De Nederlandse Reisopera heeft de harten veroverd van de operaliefhebbers. Eindelijk weer voorstellingen waarin heel erg goed wordt gezongen en de regie de muziek niet in de weg zit. Wij zijn er trots op dat al hun voorstellingen voortaan in ons theater te zien zijn. Een abonnement geeft dát extra''s wat een avondje opera nog leuker maakt."\n\nDe Parelvissers is één van die opera’s die ooit grote populariteit genoot. De muziek is jeugdig en fris en heeft een lichtvoetige toon. Het is een super goed idee van de Nederlandse Reis Opera om dit pareltje weer eens te spelen.\n\nHet Noord Nederlands Orkest, dat afgelopen seizoen een schitterend aandeel in Tristan und Isolde had, staat dit keer onder leiding van de  Franse dirigent Benjamin Levy.  De twee gezworen vrienden Nadir en Zurga worden net als de rol van Leïla gezongen door jonge zangers die aan de vooravond van een internationale carrière staan.\n\nDe parelvissers Nadir en Zurga waren ooit allebei verliefd op Leïla. Onverwacht verdween zij uit hun leven. Als de hogepriester een nieuwe tempeldienares introduceert, herkent Nadir in haar onmiddellijk zijn jeugdliefde. Maar helaas, op elk menselijk contact staat voor Leïla de dood. Nadir haar in de nacht op. De twee worden betrapt en Zurga, die leider is van het dorp, moet het doodvonnis uitspreken. Wanneer de dorpelingen samenstromen om de terechtstelling bij te wonen, steekt Zurga het dorp in brand. Hij bevrijdt Leïla en Nadir. De woedende dorpelingen grijpen hem en werpen Zurga op de brandstapel die bedoeld was voor de gevluchte minnaars.', 'Kalimba.mp3', 'xmhNiE8R6zs'),
+(2, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse', 'War horse omschrijving', NULL, NULL),
+(3, '2014-06-25 00:00:00', 1, 1, '50.00', 6, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse 2', 'War horse omschrijving 2', NULL, NULL),
+(4, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse 3', 'War horse omschrijving 3', NULL, NULL),
+(5, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Lewis_Black.jpg', 'Lewis black 2', 'Lewis black omschrijving 2', NULL, NULL),
+(6, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Lewis_Black.jpg', 'Lewis black 3', 'Lewis black omschrijving 3', NULL, NULL),
+(7, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Lewis_Black.jpg', 'Lewis black 4', 'Lewis black omschrijving 4', NULL, NULL),
+(8, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse 4', 'War horse omschrijving 4', NULL, NULL),
+(9, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse 5', 'War horse omschrijving 5', NULL, NULL),
+(10, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Lewis_Black.jpg', 'Lewis black 5', 'Lewis black omschrijving 5', NULL, NULL),
+(11, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'Lewis_Black.jpg', 'Lewis black 6', 'Lewis black omschrijving 6', NULL, NULL),
+(12, '2014-06-25 00:00:00', 1, 1, '50.00', 10, 10, 1, '2014-06-30', 'War_Horse.jpg', 'War horse 6', 'War horse omschrijving 6', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -166,8 +184,17 @@ CREATE TABLE IF NOT EXISTS `persbericht` (
   `persbericht_id` int(11) NOT NULL AUTO_INCREMENT,
   `titel` varchar(80) NOT NULL,
   `content` text NOT NULL,
+  `website` text,
   PRIMARY KEY (`persbericht_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `persbericht`
+--
+
+INSERT INTO `persbericht` (`persbericht_id`, `titel`, `content`, `website`) VALUES
+(1, 'Goed nieuws', 'Lorem ipsum dolor sit amet, mei laboramus consequuntur no. Vim vocent alienum eu. Ad adhuc vocent pro, brute doming labitur id nec. Ei duo senserit evertitur, odio commune facilisi nam et, no dicta consulatu pri. Antiopam recteque ex vel, mea verterem argumentum no, mel ad feugiat mediocritatem. Populo recusabo in usu, error meliore molestiae cum eu.\n\nPostea quaeque ex cum, tota novum oporteat pro eu. Repudiare dignissim in mea, no usu eleifend voluptaria, vel nullam percipit praesent ea. Eam ex incorrupte omittantur complectitur, ridens aliquid deterruisset his no, usu mediocrem contentiones comprehensam at. Vim ne quas omnis ubique. Cum ridens signiferumque id.\n\nCu affert eligendi has. Ei vero exerci repudiandae eum, virtute scriptorem ullamcorper ex per. Quodsi saperet molestie et eos, in meliore delectus vel, duo corpora recusabo no. Id sit inani explicari, tota delectus vituperatoribus no per, pro et debet invenire gloriatur.\n\nHarum ignota graecis duo ad, ad inani utinam per. Ex his labores voluptatibus. Mel sumo dicunt voluptaria ex. Et pri partem putant eligendi, idque nonumy signiferumque et vel. Duo zril nemore id, vim cu harum delicata.\n\nFabulas fuisset adipisci no vix, ad nostrud volumus nominati his, has an regione integre. Nam graeci deterruisset ea, sit viderer accusamus ei. Ridens deserunt senserit te his, omnium aperiri definitionem sed ad. Nam ex augue feugiat. Has at paulo appareat, ex ius accusamus hendrerit, option tincidunt an vis. At inani eruditi alienum vis, no suscipit mediocrem sea.', NULL),
+(2, 'Minder goed nieuws', 'blablabllablablbalabl', 'Link.nl');
 
 -- --------------------------------------------------------
 
@@ -203,6 +230,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(80) NOT NULL,
   `wachtwoord` text NOT NULL,
   `userrole` int(11) DEFAULT NULL,
+  `totaal_deze_periode` decimal(18,2) NOT NULL,
+  `banned` tinyint(1) NOT NULL COMMENT '0 = true, 1= false',
+  `banned_since` date NOT NULL,
+  `aantal_niet_opgehaald` int(11) NOT NULL,
   PRIMARY KEY (`user_id`,`email`),
   KEY `fk_klant_userrole_idx` (`userrole`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -211,9 +242,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Gegevens worden uitgevoerd voor tabel `users`
 --
 
-INSERT INTO `users` (`user_id`, `voornaam`, `achternaam`, `email`, `wachtwoord`, `userrole`) VALUES
-(1, 'admin', 'achternaam', 'admin@gmail.com', 'geheim', 1),
-(2, 'user', 'achternaam', 'user@gmail.com', 'geheim', 2);
+INSERT INTO `users` (`user_id`, `voornaam`, `achternaam`, `email`, `wachtwoord`, `userrole`, `totaal_deze_periode`, `banned`, `banned_since`, `aantal_niet_opgehaald`) VALUES
+(1, 'admin', 'achternaam', 'admin@gmail.com', 'geheim', 1, '0.00', 1, '0000-00-00', 0),
+(2, 'user', 'achternaam', 'user@gmail.com', 'geheim', 2, '0.00', 1, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
